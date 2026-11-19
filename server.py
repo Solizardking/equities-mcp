@@ -728,7 +728,11 @@ def mcp_handle(msg: dict):
         result = {}
     elif method == "tools/list":
         result = {"tools": [{"name": n, "description": t["description"],
-                             "inputSchema": t["inputSchema"]} for n, t in TOOLS.items()]}
+                             "inputSchema": t["inputSchema"],
+                             "annotations": {"readOnlyHint": True,
+                                             "destructiveHint": False,
+                                             "idempotentHint": True}}
+                            for n, t in TOOLS.items()]}
     elif method == "tools/call":
         params = msg.get("params") or {}
         name = params.get("name", "")
