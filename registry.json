@@ -1,0 +1,289 @@
+{
+ "generated_at": "2026-11-19T19:02:04.330818+00:00",
+ "tickers": {
+  "AAPL": {
+   "ticker": "AAPL",
+   "fd_ticker": "AAPL",
+   "backpack_symbol": "AAPL.US_USDC_PERP",
+   "solana_mint": "AAPLEDt8RpzPgXyhvFzkMBofvFSQw9gpeMCoUdPdLnB8",
+   "decimals": 6,
+   "issuer": "Sunrise",
+   "stonk_symbol": "AAPL",
+   "name": "Apple",
+   "token_program": "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb",
+   "also_onchain": [],
+   "verified_at": "2026-11-19T19:00:42.115983+00:00"
+  },
+  "AMD": {
+   "ticker": "AMD",
+   "fd_ticker": "AMD",
+   "backpack_symbol": "AMD.US_USDC_PERP",
+   "solana_mint": "AMD8XwJXgQ9WV45Wyj9yFLejxzf2J6VM1PJY8bJEjeES",
+   "decimals": 6,
+   "issuer": "Sunrise",
+   "stonk_symbol": "AMD",
+   "name": "Advanced Micro Devices",
+   "token_program": "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb",
+   "also_onchain": [],
+   "verified_at": "2026-11-19T19:00:45.912720+00:00"
+  },
+  "AMZN": {
+   "ticker": "AMZN",
+   "fd_ticker": "AMZN",
+   "backpack_symbol": "AMZN.US_USDC_PERP",
+   "solana_mint": "Xs3eBt7uRfJX8QUs4suhyU8p2M6DoUDrJyWBa8LLZsg",
+   "decimals": 8,
+   "issuer": "xStock",
+   "stonk_symbol": "AMZNX",
+   "name": "AMAZON",
+   "token_program": "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb",
+   "also_onchain": [
+    {
+     "solana_mint": "AMZNw7cwU9L9c7ewZXxTws2PwQYxBGm2Rxg3FLDBJz9B",
+     "stonk_symbol": "AMZN",
+     "issuer": "Sunrise",
+     "name": "Amazon",
+     "decimals": 6,
+     "token_program": "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb"
+    }
+   ],
+   "verified_at": "2026-11-19T19:00:52.318389+00:00"
+  },
+  "CRCL": {
+   "ticker": "CRCL",
+   "fd_ticker": "CRCL",
+   "backpack_symbol": "CRCL.US_USDC_PERP",
+   "solana_mint": "XsueG8BtpquVJX9LVLLEGuViXUungE6WmK5YZ3p3bd1",
+   "decimals": 8,
+   "issuer": "xStock",
+   "stonk_symbol": "CRCLX",
+   "name": "CIRCLE",
+   "token_program": "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb",
+   "also_onchain": [],
+   "verified_at": "2026-11-19T19:00:55.048335+00:00"
+  },
+  "DRAM": {
+   "ticker": "DRAM",
+   "fd_ticker": "DRAM",
+   "backpack_symbol": "DRAM.US_USDC_PERP",
+   "solana_mint": "DRAMjSWR7HRfJKjRkvQWYL2bcaejaVhuxEcjf4pAY4Cw",
+   "decimals": 6,
+   "issuer": "Sunrise",
+   "stonk_symbol": "DRAM",
+   "name": "DRAM",
+   "token_program": "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb",
+   "also_onchain": [],
+   "verified_at": "2026-11-19T19:00:59.416971+00:00"
+  },
+  "GOOGL": {
+   "ticker": "GOOGL",
+   "fd_ticker": "GOOGL",
+   "backpack_symbol": "GOOGL.US_USDC_PERP",
+   "solana_mint": "XsCPL9dNWBMvFtTmwcCA5v3xWPSMEBCszbQdiLLq6aN",
+   "decimals": 8,
+   "issuer": "xStock",
+   "stonk_symbol": "GOOGLX",
+   "name": "GOOGLE",
+   "token_program": "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb",
+   "also_onchain": [
+    {
+     "solana_mint": "GooGLMvZtJZXHdNZy95RUrAMCCKxV6ghK3qE5ddBgVm5",
+     "stonk_symbol": "GOOGL",
+     "issuer": "Sunrise",
+     "name": "Alphabet",
+     "decimals": 6,
+     "token_program": "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb"
+    }
+   ],
+   "verified_at": "2026-11-19T19:01:05.443970+00:00"
+  },
+  "HOOD": {
+   "ticker": "HOOD",
+   "fd_ticker": "HOOD",
+   "backpack_symbol": "HOOD.US_USDC_PERP",
+   "solana_mint": "XsvNBAYkrDRNhA7wPHQfX3ZUXZyZLdnCQDfHZ56bzpg",
+   "decimals": 8,
+   "issuer": "xStock",
+   "stonk_symbol": "HOODX",
+   "name": "HOOD",
+   "token_program": "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb",
+   "also_onchain": [],
+   "verified_at": "2026-11-19T19:01:09.934404+00:00"
+  },
+  "INTC": {
+   "ticker": "INTC",
+   "fd_ticker": "INTC",
+   "backpack_symbol": "INTC.US_USDC_PERP",
+   "solana_mint": "XshPgPdXFRWB8tP1j82rebb2Q9rPgGX37RuqzohmArM",
+   "decimals": 8,
+   "issuer": "xStock",
+   "stonk_symbol": "INTCX",
+   "name": "INTC",
+   "token_program": "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb",
+   "also_onchain": [],
+   "verified_at": "2026-11-19T19:01:14.002118+00:00"
+  },
+  "META": {
+   "ticker": "META",
+   "fd_ticker": "META",
+   "backpack_symbol": "META.US_USDC_PERP",
+   "solana_mint": "Xsa62P5mvPszXL1krVUnU5ar38bBSVcWAB6fmPCo5Zu",
+   "decimals": 8,
+   "issuer": "xStock",
+   "stonk_symbol": "METAX",
+   "name": "META",
+   "token_program": "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb",
+   "also_onchain": [],
+   "verified_at": "2026-11-19T19:01:17.150026+00:00"
+  },
+  "MSFT": {
+   "ticker": "MSFT",
+   "fd_ticker": "MSFT",
+   "backpack_symbol": "MSFT.US_USDC_PERP",
+   "solana_mint": "XspzcW1PRtgf6Wj92HCiZdjzKCyFekVD8P5Ueh3dRMX",
+   "decimals": 8,
+   "issuer": "xStock",
+   "stonk_symbol": "MSFTX",
+   "name": "MSFT",
+   "token_program": "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb",
+   "also_onchain": [
+    {
+     "solana_mint": "MSFThX899B1DddH5jkyMpdArWXzP85VXLYDrbGGcRJM",
+     "stonk_symbol": "MSFT",
+     "issuer": "Sunrise",
+     "name": "Microsoft",
+     "decimals": 6,
+     "token_program": "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb"
+    }
+   ],
+   "verified_at": "2026-11-19T19:01:24.123834+00:00"
+  },
+  "MU": {
+   "ticker": "MU",
+   "fd_ticker": "MU",
+   "backpack_symbol": "MU.US_USDC_PERP",
+   "solana_mint": "MUxEsUKSMACyw5fZf68wxf5FLnZVhtU9CwH8uNNGay1",
+   "decimals": 6,
+   "issuer": "Sunrise",
+   "stonk_symbol": "MU",
+   "name": "Micron",
+   "token_program": "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb",
+   "also_onchain": [],
+   "verified_at": "2026-11-19T19:01:27.484344+00:00"
+  },
+  "NVDA": {
+   "ticker": "NVDA",
+   "fd_ticker": "NVDA",
+   "backpack_symbol": "NVDA.US_USDC_PERP",
+   "solana_mint": "Xsc9qvGR1efVDFGLrVsmkzv3qi45LTBjeUKSPmx9qEh",
+   "decimals": 8,
+   "issuer": "xStock",
+   "stonk_symbol": "NVDAX",
+   "name": "NVIDIA",
+   "token_program": "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb",
+   "also_onchain": [
+    {
+     "solana_mint": "NVDAVuiB7hwd3m5Wa1JuHNovPaPG6BH1QNztbKFxNjv",
+     "stonk_symbol": "NVDA",
+     "issuer": "Sunrise",
+     "name": "Nvidia",
+     "decimals": 6,
+     "token_program": "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb"
+    }
+   ],
+   "verified_at": "2026-11-19T19:01:35.072570+00:00"
+  },
+  "QQQ": {
+   "ticker": "QQQ",
+   "fd_ticker": "QQQ",
+   "backpack_symbol": "QQQ.US_USDC_PERP",
+   "solana_mint": "Xs8S1uUs1zvS2p7iwtsG3b6fkhpvmwz4GYU3gWAmWHZ",
+   "decimals": 8,
+   "issuer": "xStock",
+   "stonk_symbol": "QQQX",
+   "name": "QQQ",
+   "token_program": "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb",
+   "also_onchain": [
+    {
+     "solana_mint": "QQQvDYxG7g11Rr4rnaJqDddmP9ocH74YhE3mDaG37R9",
+     "stonk_symbol": "QQQ",
+     "issuer": "Sunrise",
+     "name": "QQQ",
+     "decimals": 6,
+     "token_program": "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb"
+    }
+   ],
+   "verified_at": "2026-11-19T19:01:41.230969+00:00"
+  },
+  "SKHY": {
+   "ticker": "SKHY",
+   "fd_ticker": "SKHY",
+   "backpack_symbol": "SKHY.US_USDC_PERP",
+   "solana_mint": "SKHYhSjuRWHgikq8eRKbtBbpABgJSkd7ytQV14i9EQ3",
+   "decimals": 6,
+   "issuer": "Sunrise",
+   "stonk_symbol": "SKHY",
+   "name": "SKHYNIX",
+   "token_program": "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb",
+   "also_onchain": [],
+   "verified_at": "2026-11-19T19:01:44.277508+00:00"
+  },
+  "SPCX": {
+   "ticker": "SPCX",
+   "fd_ticker": "SPCX",
+   "backpack_symbol": "SPCX.US_USDC_PERP",
+   "solana_mint": "Xs3oZwbHvqis4NYcf4YKWmEia2eC84wSiVrcYcTqpH8",
+   "decimals": 8,
+   "issuer": "xStock",
+   "stonk_symbol": "SPCXX",
+   "name": "SPACEX",
+   "token_program": "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb",
+   "also_onchain": [],
+   "verified_at": "2026-11-19T19:01:48.026739+00:00"
+  },
+  "SPY": {
+   "ticker": "SPY",
+   "fd_ticker": "SPY",
+   "backpack_symbol": "SPY.US_USDC_PERP",
+   "solana_mint": "XsoCS1TfEyfFhfvj8EtZ528L3CaKBDBRqRapnBbDF2W",
+   "decimals": 8,
+   "issuer": "xStock",
+   "stonk_symbol": "SPYX",
+   "name": "SP500",
+   "token_program": "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb",
+   "also_onchain": [
+    {
+     "solana_mint": "SPYBo66VJPFjh1pXMb9Le53kDYWTK1zzYVDeVRWtsbi",
+     "stonk_symbol": "SPY",
+     "issuer": "Sunrise",
+     "name": "State Street SPDR S&P 500 ETF Trust",
+     "decimals": 6,
+     "token_program": "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb"
+    }
+   ],
+   "verified_at": "2026-11-19T19:01:55.984188+00:00"
+  },
+  "TSLA": {
+   "ticker": "TSLA",
+   "fd_ticker": "TSLA",
+   "backpack_symbol": "TSLA.US_USDC_PERP",
+   "solana_mint": "XsDoVfqeBukxuZHWhdvWHBhgEHjGNst4MLodqsJHzoB",
+   "decimals": 8,
+   "issuer": "xStock",
+   "stonk_symbol": "TSLAX",
+   "name": "TESLA",
+   "token_program": "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb",
+   "also_onchain": [
+    {
+     "solana_mint": "TSLAqBbv4CNCnzWFeB7LmydAyEiNMJtve7DYKLpdK4S",
+     "stonk_symbol": "TSLA",
+     "issuer": "Sunrise",
+     "name": "TSLA",
+     "decimals": 6,
+     "token_program": "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb"
+    }
+   ],
+   "verified_at": "2026-11-19T19:02:04.330788+00:00"
+  }
+ }
+}

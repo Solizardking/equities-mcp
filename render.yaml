@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: equities-mcp
+    runtime: python
+    repo: https://github.com/Solizardking/equities-mcp
+    branch: main
+    plan: starter
+    buildCommand: "true"
+    startCommand: python3 server.py
+    envVars:
+      - key: HOST
+        value: 0.0.0.0
+      - key: FINANCIAL_DATASETS_API_KEY
+        sync: false
