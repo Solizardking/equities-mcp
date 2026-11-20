@@ -88,3 +88,15 @@ responses are reassembled via HTTP Range requests when truncated).
   `~/workspace/solana-rpc/` (they read their endpoint files from
   `~/.config/solana-rpc/`, 0600).
 - `registry.json` is a cache, safe to delete; it regenerates on demand.
+
+## Cloudflare Worker port
+
+A JavaScript port of this server runs on Cloudflare Workers at
+https://equities-mcp.mynameisjeffspicoli.workers.dev (portal `/`, MCP
+endpoint `/mcp`) — same 7 tools, registry embedded, deployed while the
+Render workspace is out of build minutes. Source, deploy script, and
+local test harness live in [`cloudflare/`](cloudflare/README.md).
+**Deploys must go through `cloudflare/deploy.py`** so the secret bindings
+(Financial Datasets key, keyed Solana RPC URL — both read in-process at
+deploy time, never committed) are preserved. The Render deployment above
+remains the fallback and is untouched by the port.
