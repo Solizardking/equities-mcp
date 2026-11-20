@@ -689,7 +689,10 @@ async function mcpHandle(msg, env) {
 }
 
 // ---------------------------------------------------------------------------
-// Portal page (fleet MCP style: dark #0b0e14, Solana gradient)
+// Portal page — styled to match the live Perps MCP portal
+// (mcp.clawdcompute.us, imperial-perps-mcp-server): darkx402 palette
+// (#05060a / #0d1019), sticky mono brand bar with orb logo, chip-status,
+// serif display headings, grad-text, kicker pill, sheen panels, tool cards.
 // ---------------------------------------------------------------------------
 
 function esc(s) {
@@ -706,78 +709,142 @@ function portalHtml() {
   const rows = Object.entries(TOOLS)
     .map(([name, t]) => {
       const desc = t.description.split(". ")[0].replace(/\.+$/, "") + ".";
-      return `<div class="tool"><code>${esc(name)}</code><span>${esc(desc)}</span></div>`;
+      return `<div class="tcard"><h4>${esc(name)}</h4><p>${esc(desc)}</p><div class="row"><span class="tag read">read</span></div></div>`;
     })
     .join("\n      ");
   return `<!doctype html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="color-scheme" content="dark">
-<meta name="theme-color" content="#0b0e14">
-<title>Equities MCP · Tokenized Equities on Solana</title>
+<meta name="theme-color" content="#05060a">
+<title>Equities MCP · $CLAWD</title>
 <meta name="description" content="Equities MCP: read-only MCP server for tokenized equities on Solana — registry of on-chain stock tokens, three-way quotes (underlying vs perp vs on-chain), mint truth, fundamentals, candles and wallet holdings.">
 <style>
-  * { box-sizing: border-box; }
-  body { margin:0; background:#0b0e14; color:#e6edf3; font:16px/1.55 -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
-  .wrap { max-width: 880px; margin: 0 auto; padding: 28px 20px 48px; }
-  .brand { display:flex; align-items:center; gap:10px; font-weight:700; font-size:18px; }
-  .logo { width:30px; height:30px; border-radius:8px; display:grid; place-items:center; color:#0b0e14; font-weight:800; background:linear-gradient(135deg,#9945FF,#14F195); }
-  .brand small { color:#8b98a5; font-weight:500; }
-  h1 { font-size:38px; line-height:1.15; margin:34px 0 10px; }
-  .grad { background:linear-gradient(90deg,#9945FF,#14F195); -webkit-background-clip:text; background-clip:text; color:transparent; }
-  .lead { color:#aeb9c4; font-size:18px; margin:0 0 8px; }
-  .status { display:inline-flex; align-items:center; gap:8px; margin:14px 0 4px; padding:6px 12px; border:1px solid #22304a; border-radius:999px; font-size:14px; color:#aeb9c4; }
-  .dot { width:9px; height:9px; border-radius:50%; background:#8b98a5; }
-  .dot.ok { background:#14F195; } .dot.bad { background:#ff5c5c; }
-  .panel { background:#101623; border:1px solid #1e2a3f; border-radius:14px; padding:18px 20px; margin-top:18px; }
-  .panel h3 { margin:0 0 12px; font-size:16px; }
-  .tool { display:flex; gap:14px; padding:9px 0; border-top:1px solid #1a2436; align-items:baseline; }
-  .tool:first-of-type { border-top:none; }
-  .tool code { color:#14F195; font-size:14px; white-space:nowrap; min-width:190px; }
-  .tool span { color:#aeb9c4; font-size:14px; }
-  code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }
-  pre.code { background:#0b0e14; border:1px solid #1e2a3f; border-radius:10px; padding:14px; overflow:auto; font-size:13px; color:#c9d4e0; }
-  .mono { color:#14F195; word-break:break-all; }
-  .muted { color:#8b98a5; font-size:14px; }
-  .foot { margin-top:28px; color:#8b98a5; font-size:13px; display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap; }
-  @media (max-width:640px) { .tool { flex-direction:column; gap:2px; } .tool code { min-width:0; } }
+  :root{
+    /* darkx402 palette, built on the main purple/green restyle tokens */
+    --void:#07060d;--bg:#05060a;--bg2:#0a0c14;--panel:#0d1019;--card:#0d1019;--panel2:#121625;--line:#1c2130;--line2:#2a2540;
+    --text:#e8eaf2;--muted:#9aa3b8;--faint:#6b7390;
+    --purple:#9945FF;--violet:#8b5cf6;--green:#14F195;--teal:#3dd6c4;--coral:#ff6a4d;
+    --grad:linear-gradient(92deg,#9945FF 0%,#14F195 100%);
+    --grad-text:linear-gradient(92deg,#a78bfa 0%,#7c9cff 45%,#3dd6c4 100%);
+    --accent:#9945FF;--accent2:#14F195;--ok:#14F195;--warn:#ffb454;--bad:#ff6b7a;--code:#05060a;
+    --radius:14px;
+    --serif:"Cormorant Garamond","Iowan Old Style","Palatino Linotype",Georgia,serif;
+    --sans:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    --mono:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  }
+  * { box-sizing:border-box; }
+  html,body { margin:0; background:var(--bg); color:var(--text); }
+  body { font:14.5px/1.6 var(--sans); -webkit-font-smoothing:antialiased; min-height:100vh;
+    background:radial-gradient(1100px 520px at 50% -180px,rgba(153,69,255,.16),transparent 70%),radial-gradient(800px 420px at 100% 0%,rgba(20,241,149,.04),transparent 60%),var(--bg); }
+  a { color:#c9a7ff; text-underline-offset:3px; } a:hover { color:var(--text); }
+  code,pre,.mono { font-family:var(--mono); }
+  ::selection { background:rgba(153,69,255,.35); }
+  a:focus-visible { outline:2px solid var(--accent2); outline-offset:2px; }
+  .wrap { max-width:1180px; margin:0 auto; padding:0 24px; }
+  /* top bar */
+  header.top { position:sticky; top:0; z-index:20; background:rgba(5,6,10,.78); backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px); border-bottom:1px solid var(--line); }
+  header.top .wrap { display:flex; align-items:center; gap:14px; height:58px; max-width:1340px; }
+  .brand { display:flex; align-items:center; gap:11px; font:500 12.5px/1 var(--mono); letter-spacing:.32em; text-transform:uppercase; white-space:nowrap; text-decoration:none; color:var(--text); }
+  .brand .logo { width:24px; height:24px; border-radius:50%; background:radial-gradient(circle at 32% 30%,#c9a7ff 0,#9945FF 38%,#14F195 100%); box-shadow:0 0 14px rgba(153,69,255,.45); font-size:0; color:transparent; flex:none; }
+  .brand small { color:var(--muted); font-weight:400; letter-spacing:.18em; margin-left:-2px; }
+  nav.tabs { display:flex; gap:2px; margin-left:16px; overflow-x:auto; scrollbar-width:none; }
+  nav.tabs::-webkit-scrollbar { display:none; }
+  nav.tabs a { color:var(--muted); text-decoration:none; padding:7px 11px; border-radius:8px; white-space:nowrap; font-size:13.5px; font-weight:450; }
+  nav.tabs a:hover { color:var(--text); }
+  nav.tabs a[aria-current="page"] { color:var(--text); background:rgba(153,69,255,.12); box-shadow:inset 0 0 0 1px rgba(153,69,255,.28); }
+  .topright { margin-left:auto; display:flex; align-items:center; gap:8px; }
+  .chip-status { display:flex; align-items:center; gap:7px; font:500 10.5px/1 var(--mono); letter-spacing:.12em; text-transform:uppercase; color:var(--muted); border:1px solid var(--line2); border-radius:999px; padding:6px 10px; white-space:nowrap; }
+  .dot { width:7px; height:7px; border-radius:50%; background:var(--faint); display:inline-block; flex:none; }
+  .dot.ok { background:var(--ok); box-shadow:0 0 0 3px rgba(20,241,149,.16); } .dot.bad { background:var(--bad); } .dot.warn { background:var(--warn); }
+  /* layout */
+  main { padding:22px 0 60px; }
+  h1,h2 { font-family:var(--serif); font-weight:300; letter-spacing:-.015em; line-height:1.08; }
+  h1 { font-size:clamp(34px,5vw,54px); margin:6px 0 12px; }
+  h3 { font-family:var(--sans); font-weight:550; font-size:15px; letter-spacing:0; margin:0 0 8px; }
+  .grad { background:var(--grad-text); -webkit-background-clip:text; background-clip:text; color:transparent; }
+  .lead { font-size:16.5px; line-height:1.65; color:#b4b9cb; margin:0 0 16px; max-width:720px; }
+  .hero { margin:18px 0 26px; }
+  .kicker { display:inline-flex; align-items:center; gap:7px; font-size:12px; color:var(--teal); border:1px solid rgba(61,214,196,.38); background:rgba(61,214,196,.06); border-radius:999px; padding:3px 10px; }
+  .kicker .dot { width:6px; height:6px; }
+  /* surfaces: quiet bordered cards on the void, faint violet sheen */
+  .panel { background:linear-gradient(180deg,rgba(153,69,255,.035),transparent 42%),var(--panel); border:1px solid var(--line); border-radius:var(--radius); padding:20px; margin-top:16px; }
+  .panel:hover { border-color:#262b3f; }
+  .panel>h3 { display:flex; align-items:center; gap:8px; font-family:var(--serif); font-weight:400; font-size:22px; letter-spacing:-.01em; }
+  .panel>h3 .small { font-family:var(--mono); font-size:10.5px; letter-spacing:.12em; text-transform:uppercase; font-weight:400; }
+  .row { display:flex; gap:8px; align-items:center; flex-wrap:wrap; }
+  .muted { color:var(--muted); } .small { font-size:12.5px; }
+  /* tools */
+  .tlist { display:grid; grid-template-columns:repeat(auto-fill,minmax(260px,1fr)); gap:10px; }
+  .tcard { background:linear-gradient(180deg,rgba(153,69,255,.035),transparent 42%),var(--panel); border:1px solid var(--line); border-radius:12px; padding:12px; display:flex; flex-direction:column; gap:6px; min-width:0; }
+  .tcard:hover { border-color:rgba(153,69,255,.55); }
+  .tcard h4 { margin:0; font-family:var(--mono); font-size:12.5px; font-weight:500; overflow-wrap:anywhere; }
+  .tcard p { margin:0; color:var(--muted); font-size:12.5px; }
+  .tag { font-size:10px; font-weight:500; letter-spacing:.14em; padding:2px 7px; border-radius:5px; text-transform:uppercase; font-family:var(--mono); }
+  .tag.read { background:rgba(20,241,149,.08); color:var(--green); }
+  pre.code { background:var(--void); border:1px solid var(--line); border-radius:12px; padding:12px; overflow:auto; font-size:12.5px; margin:0; white-space:pre; }
+  ul.clean { margin:6px 0; padding-left:18px; } ul.clean li { margin:3px 0; }
+  footer.foot { border-top:1px solid var(--line); font-family:var(--serif); font-size:16px; color:var(--muted); padding:18px 0 28px; }
+  footer.foot .wrap { display:flex; gap:12px; flex-wrap:wrap; justify-content:space-between; }
+  @media (max-width:640px){
+    .wrap { padding:0 14px; } h1 { font-size:36px; } .lead { font-size:15px; }
+    .brand { letter-spacing:.22em; } .brand small { display:none; } .chip-status { padding:5px 8px; }
+    header.top .wrap { height:auto; flex-wrap:wrap; padding-top:8px; padding-bottom:6px; gap:8px; }
+    nav.tabs { order:3; width:100%; margin-left:0; }
+    .panel { padding:16px; } .hero { margin:10px 0 18px; }
+    .tlist { grid-template-columns:minmax(0,1fr); }
+  }
 </style>
 </head>
 <body>
-<div class="wrap">
-  <div class="brand"><span class="logo">E</span>Equities MCP <small>· $CLAWD</small></div>
-  <h1>Tokenized equities <span class="grad">on Solana</span></h1>
-  <p class="lead">A read-only MCP server for the on-chain stock market: which tokenized
-  equities exist on Solana, what each token trades at versus the underlying stock and
-  the 24/7 perp, and the on-chain truth for every mint. Registry currently tracks
-  <b>${count} tickers</b> (built ${esc(generated)}), every mint verified via Solana RPC
-  before it enters.</p>
-  <div class="status"><span class="dot" id="dot"></span><span id="statusText">Checking…</span></div>
+<header class="top"><div class="wrap">
+  <a class="brand" href="/"><span class="logo" aria-hidden="true">E</span>Equities MCP <small>· $CLAWD</small></a>
+  <nav class="tabs" aria-label="Sections">
+    <a href="#tools" aria-current="page">Tools</a>
+    <a href="#connect">Connect</a>
+    <a href="#safety">Safety</a>
+  </nav>
+  <div class="topright">
+    <span class="chip-status" title="Server status"><span class="dot" id="dot"></span><span id="statusText">Connecting…</span></span>
+  </div>
+</div></header>
 
-  <div class="panel"><h3>Tools — read-only, <code>equities_</code> namespace</h3>
-      ${rows}
+<main class="wrap">
+  <div class="hero">
+    <span class="kicker"><span class="dot ok"></span>Read-only · Solana</span>
+    <h1>Tokenized equities <span class="grad">on Solana</span></h1>
+    <p class="lead">A read-only MCP server for the on-chain stock market: which tokenized
+    equities exist on Solana, what each token trades at versus the underlying stock and
+    the 24/7 perp, and the on-chain truth for every mint. Registry currently tracks
+    <b>${count} tickers</b> (built ${esc(generated)}), every mint verified via Solana RPC
+    before it enters.</p>
   </div>
 
-  <div class="panel"><h3>Connect an MCP client</h3>
+  <div class="panel" id="tools"><h3>Tools <span class="small muted" style="margin-left:auto">read-only · equities_ namespace</span></h3>
+    <div class="tlist">
+      ${rows}
+    </div>
+  </div>
+
+  <div class="panel" id="connect"><h3>Connect an MCP client</h3>
     <p class="muted">One Streamable HTTP endpoint. The MCP endpoint is
     <code class="mono" id="endpoint">/mcp</code> (POST, JSON-RPC).</p>
     <pre class="code" id="connectCode">Loading…</pre>
-    <p class="muted">Or with curl:
+    <p class="muted" style="margin-bottom:0">Or with curl:
     <code>curl -X POST &lt;this-origin&gt;/mcp -H 'Content-Type: application/json' -d '{"jsonrpc":"2.0","id":1,"method":"tools/list"}'</code></p>
   </div>
 
-  <div class="panel"><h3>Safety model</h3>
-    <p class="muted" style="margin:0">Read-only by design. This server holds no keys,
-    signs nothing, and has no swap or trade tools. Data legs: Stonk (on-chain catalog),
-    Backpack (24/7 equity perps), Financial Datasets (underlying), Solana RPC
-    (on-chain truth), Jupiter (executable on-chain price). A failed leg degrades to
-    null + a note — never a fabricated number.</p>
+  <div class="panel" id="safety"><h3>Safety model</h3>
+    <ul class="clean small muted" style="margin:0">
+      <li>Read-only by design. This server holds no keys, signs nothing, and has no swap or trade tools.</li>
+      <li>Data legs: Stonk (on-chain catalog), Backpack (24/7 equity perps), Financial Datasets (underlying), Solana RPC (on-chain truth), Jupiter (executable on-chain price).</li>
+      <li>A failed leg degrades to null + a note — never a fabricated number.</li>
+    </ul>
   </div>
-
-  <div class="foot"><span>Equities MCP · tokenized equities on Solana · read-only</span><span>Not financial advice.</span></div>
-</div>
+</main>
+<footer class="foot"><div class="wrap"><span>Equities MCP · tokenized equities on Solana · read-only</span><span>Not financial advice.</span></div></footer>
 <script>
   var origin = window.location.origin;
   document.getElementById('endpoint').textContent = origin + '/mcp';
@@ -785,7 +852,7 @@ function portalHtml() {
     JSON.stringify({mcpServers: {'equities-mcp': {url: origin + '/mcp'}}}, null, 2);
   fetch('/health').then(function(r) { return r.json(); }).then(function(j) {
     document.getElementById('dot').className = 'dot ok';
-    document.getElementById('statusText').textContent = 'Live · ' + j.service + ' · ' + j.as_of;
+    document.getElementById('statusText').textContent = 'Live · ' + j.service;
   }).catch(function() {
     document.getElementById('dot').className = 'dot bad';
     document.getElementById('statusText').textContent = 'Health check failed';
@@ -794,6 +861,7 @@ function portalHtml() {
 </body>
 </html>`;
 }
+
 
 // ---------------------------------------------------------------------------
 // HTTP entrypoint
